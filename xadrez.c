@@ -1,37 +1,56 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+    // função movimentação bispo
+
+    void recursivoBispo (int casasBispo){        
+        if (casasBispo > 0){
+            recursivoBispo(casasBispo - 1);
+            printf("movendo Bispo %d casa para cima/direita.\n", casasBispo);            
+        }
+    }
+    // função movimentação torre
+
+    void recursivoTorre (int casasTorre){
+        if (casasTorre > 0){
+            recursivoTorre(casasTorre - 1);
+            printf("movendo torre %d casa para direita.\n", casasTorre); 
+        }
+    }
+    // função movimentação rainha
+    void recursivoRainha (int casasRainha){
+        if (casasRainha > 0){
+            recursivoTorre(casasRainha - 1);
+            printf("movendo torre %d casa para Esquerda.\n", casasRainha); 
+        }
+    }
 
 int main() {
 
     // Nível Novato - Movimentação das Peças
-
-    int torre = 1, bispo = 1, rainha = 1, cavalo = 1;
+    int torre, bispo, rainha, cavalo = 1;
 
     // Implementação de Movimentação do Bispo
-    
-    do {
-            printf("movendo Bispo %d casa para cima/direita.\n", bispo);
-            bispo++;
-        } while (bispo <= 5);
+
+        printf("Digite a quantidade de casas para movimentar o bispo: ");
+        scanf("%d", &bispo);
+        recursivoBispo(bispo);
+
         printf("Aguarde a proxima jogada...\n");
 
     // Implementação de Movimentação da Torre
-    
-    while (torre <= 5)
-            {
-                printf("movendo torre %d casa para direita.\n", torre);
-                torre++;
-            }
-        printf("Aguarde a proxima jogada...\n");
 
+        printf("Digite a quantidade de casas para movimentar a torre: ");
+        scanf("%d", &torre);
+        recursivoTorre(torre);
+
+        printf("Aguarde a proxima jogada...\n");
+            
     // Implementação de Movimentação da Rainha
     
-    for (rainha = 1; rainha <= 8; rainha++) {
-            printf("movendo Rainha %d Casa para esquerda.\n", rainha);
-        }
+        printf("Digite a quantidade de casas para movimentar a rainha: ");
+        scanf("%d", &rainha);
+        recursivoRainha(rainha);
+
         printf("Aguarde a proxima jogada...\n");
 
     // Nível Aventureiro - Movimentação do Cavalo
